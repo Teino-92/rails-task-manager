@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">My Tasks</h1>
+    <%= link_to "Add a new task", new_task_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="list-group">
+    <% @tasks.each do |task| %>
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="mb-1">
+            <%= link_to task.title, task_path(task), class: "text-decoration-none" %>
+          </h5>
+          <small class="text-muted">
+            <%= task.completed ? "Completed ✅" : "Not completed ❌" %>
+          </small>
+        </div>
+
+        <%= link_to "Delete",
+            task_path(task),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: "btn btn-outline-danger btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>

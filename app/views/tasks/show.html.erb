@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h1 class="card-title"><%= @task.title %></h1>
+      <p class="card-text text-muted"><%= @task.details %></p>
+
+      <div class="d-flex gap-3 mt-4">
+        <%= link_to "Back to the list", tasks_path, class: "btn btn-secondary" %>
+
+        <%= link_to "Edit task",
+            edit_task_path(@task),
+            class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
